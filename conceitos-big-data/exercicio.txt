@@ -1,0 +1,25 @@
+Fazer cadastro no kaggle
+
+
+
+Download do dataset diabetes
+
+
+
+https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset
+
+
+
+Com o pandas verifique o tamanho do dataset
+
+
+
+Qual o intervalo de valores da variável AGE
+
+
+
+Qual o intervalo de valores da variável Insulina para pacientes com idade acima de 30?
+
+
+
+O que se pode concluir a respeito da variável Glicose para os grupos com diabetes e sem diabetes (Outcome==‘1’ tem diabete Outcome==‘0’ não tem diabete)
