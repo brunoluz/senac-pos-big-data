@@ -1,4 +1,7 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
+
 diabetes = pd.read_csv('diabetes.csv')
 
 print('\n')
@@ -45,3 +48,10 @@ Neste dataset, a média de glicose para diabéticos ficou em 141, enquanto a mé
 Outro ponto importante para se destacar é que o desvio padrão também é menor para os não diabéticos, ou seja, o valor da glicose dos não diabéticos varia menos.
 Neste dataset, o desvio padrão de glicose para diabéticos ficou em 31, enquanto o desvio padrão para os não diabéticos ficou em 26.
 """)
+
+print('\n')
+print('\n')
+print('--------------------MATPLOTLIB--------------------')
+
+age.plot(kind='hist')
+plt.show()
