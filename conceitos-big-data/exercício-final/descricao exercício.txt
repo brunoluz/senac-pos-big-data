@@ -1,0 +1,33 @@
+Exercício 2 :
+
+Dataset sobre carros:
+
+URL Dataset: https://raw.githubusercontent.com/silviostanzani/Disciplina-Analise-de-dados-Pos-Bigdata-Senac/master/Auto2.csv
+
+1 Carregar no pandas
+
+2 Realizar pré-processamento
+
+  2.1 Explique com base na estatística fornecida pelo pandas o que o dataset esta mostrando
+
+  Responda as perguntas a seguir:
+
+  2.2 Qual seria o peso mínimo para o carro estar entre os 25% mais pesados?
+
+  2.3 Qual o intervalo de valores de horsepower,weight,acceleration para os carros que estão entre os 25% mais pesados?
+
+  
+
+  2.4 Quantas linhas nulas há nesse dataset para cada coluna?
+
+  
+
+3 Visualizar
+
+  3.1 Monte uma visualização no excell (com diversos gráficos) para explicar o que caracteriza um carro ser mais ou menos economico, quais colunas faz sentido usar para essa analise?
+
+  3.2 que tipo de decisão poderia ser auxiliada com esse dataset?
+
+  3.3 quanto a governança de dados, quais cuidados devem ser tomados para montar um dataset para esse domínio de problema?
+
+  3.4 Pesquise algum dataset aberto sobre esse domínio

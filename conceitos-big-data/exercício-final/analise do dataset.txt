@@ -1,0 +1,63 @@
+
+1 Carregar no pandas (OK)
+
+2 Realizar pré-processamento
+
+  2.1 Explique com base na estatística fornecida pelo pandas o que o dataset esta mostrando
+
+Ao executar o método "info()" no dataset de carros via pandas, conseguimos perceber que o dataset é composto por 9 atributos:
+1 - mpg (miles per gallon, ou milhas por galão) - não possui valores nulos e seu conteúdo é de números decimais.
+2 - cylinders (cilindros) - não possui valores nulos e seu conteúdo é de números inteiros.
+3 - displacement (cilindradas) - não possui valores nulos e seu conteúdo é de números decimais.
+4 - horsepower (cavalos de força) - não possui valores nulos e seu conteúdo é de números inteiros.
+5 - weight (peso) - não possui valores nulos e seu conteúdo é de números inteiros.
+6 - acceleration (aceleração) - não possui valores nulos e seu conteúdo é de números decimais.
+7 - year (ano) - não possui valores nulos e seu conteúdo é de números inteiros.
+8 - origin (origem) - não possui valores nulos e seu conteúdo é de números inteiros.
+9 - name (nome) - não possui valores nulos e seu conteúdo é de texto.
+
+Ao executar o método "describe()" no dataset, conseguimos identificar as seguintes informações.
+
+- o dataset possui 397 registros.
+- a média de milhas por galão de combustível é de 23,51 milhas. O carro mais econômico consegue andar 46 milhas por galão e o menos econômico consegue andar apenas 9 milhas.
+- a média de cilindros é de 5,45 cilindros por carro. O carro com menos cilindros possui 3  enquanto o máximo de cilindros é 8.
+- a média de cilindradas é de 193,53. O carro com menos cilindradas possui 68 enquanto o máximo de cilindradas é 455.
+- a média de cavalos de força é de 104 cavalos. O carro que possui menos cavalos é de 46 e o maior é de 230.
+- a média de peso dos carros é 2970. O carro mais leve possui 1613 enquanto o mais pesado possui 5140.
+- a média de aceleração é de 15,5. O carro que mais demora a acelerar tem o valor de 8 enquanto o carro que acelera mais rápido possui o valor de 24,8.
+- a média do ano dos carros é de 76. O carro mais antigo é de 70 e o carro mais novo é de 82.
+- O atributo "origin" aparenta ser um domínio de dados. Não temos acesso ao que essa informação representa. Contudo, sua média é de 1,57. O menor valor é 1 e o maior é 3.
+
+
+
+  Responda as perguntas a seguir:
+
+  2.2 Qual seria o peso mínimo para o carro estar entre os 25% mais pesados?
+
+O percentil de 75% do atributo peso é 3609, portanto, para um carro estar entre os 25% mais pesados, ele precisaria estar acima de 3609.
+
+  2.3 Qual o intervalo de valores de horsepower,weight,acceleration para os carros que estão entre os 25% mais pesados?
+
+para separar os registros dos 25% dos carros mais pesados utilizei o comando de seleção de dados com apenas carros que possuam o seu peso maior ou igual a 3609 através dos comandos abaixo:
+heaviest_cars = carros[carros.weight >= 3609]
+heaviest_cars.describe()
+
+Através das estatísticas apresentadas pelo pandas, se confere os seguintes intervalos de valores para os atributos:
+- horsepower - min: 95, max: 230.
+- weight - min: 3609, max: 5140.
+- acceleration - min: 8, max: 21.
+
+  2.4 Quantas linhas nulas há nesse dataset para cada coluna?
+
+Não existem valores nulos neste dataset.
+  
+
+3 Visualizar
+
+  3.1 Monte uma visualização no excell (com diversos gráficos) para explicar o que caracteriza um carro ser mais ou menos economico, quais colunas faz sentido usar para essa analise?
+
+  3.2 que tipo de decisão poderia ser auxiliada com esse dataset?
+
+  3.3 quanto a governança de dados, quais cuidados devem ser tomados para montar um dataset para esse domínio de problema?
+
+  3.4 Pesquise algum dataset aberto sobre esse domínio
