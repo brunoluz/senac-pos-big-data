@@ -1,0 +1,5 @@
+conda create -n materia-bdgd python=3.9
+conda activate materia-bdgd
+conda install -n materia-bdgd mysql-connector-python
+conda install -n materia-bdgd jupyter
+conda install -n materia-bdgd pandas

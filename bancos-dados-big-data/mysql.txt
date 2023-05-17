@@ -1,0 +1,39 @@
+docker run --name mysql-local -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xpto -v mysql:/var/lib/mysql -d mysql:8.0.33
+mysqlsh --mysql -u root -P 3306 -h localhost -C --sql
+ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'xpto';
+
+
+docker logs mysql-local
+docker container stop mysql-local
+docker container start mysql-local
+docker container rm mysql-local
+
+
+
+
+
+
+
+
+CREATE DATABASE bruno_teste;
+CREATE TABLE bruno_table (id int, name varchar(255));
+insert into bruno_table(id, name) values (1, 'bruno luz');
+select * from bruno_table;
+
+
+
+
+create database senac;
+
+
+
+conda remove -n materia-bdgd --all
+
+
+
+
+conda create -n materia-bdgd python=3.9
+conda activate materia-bdgd
+conda install -n materia-bdgd mysql-connector-python
+conda install -n materia-bdgd jupyter
+conda install -n materia-bdgd pandas
