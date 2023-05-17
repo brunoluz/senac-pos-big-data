@@ -36,11 +36,15 @@ if not exist(mysql_database, ""):
 mydb = mysql.connector.connect(host=mysql_host, user=mysql_user, passwd=mysql_pass, database=mysql_database) 
 if not exist(mysql_database, "disciplina"):
     mycursor = mydb.cursor()
-    mycursor.execute("CREATE TABLE disciplina (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), ch INT, cp INT, cr INT)")
+    mycursor.execute("CREATE TABLE disciplina (id_disciplina INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), ch INT, cp INT, cr INT)")
 
 if not exist(mysql_database, "docente"):
     mycursor = mydb.cursor()
-    mycursor.execute("CREATE TABLE docente (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), email VARCHAR(50) NOT NULL, celular VARCHAR(20) NOT NULL)")
+    mycursor.execute("CREATE TABLE docente (id_docente INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), email VARCHAR(50) NOT NULL, celular VARCHAR(20) NOT NULL)")
+
+if not exist(mysql_database, "docente_disciplina"):
+    mycursor = mydb.cursor()
+    mycursor.execute("CREATE TABLE docente_disciplina (id_docente INT, id_disciplina INT)")
 
 
 data_disciplina = pd.read_csv('disciplina.csv', sep=';',  encoding='latin-1')
@@ -63,3 +67,38 @@ doscentes = doscentes.values.tolist()
 mycursor = mydb.cursor()
 mycursor.executemany(mysql_insert_query_doscente, doscentes)
 mydb.commit()
+
+
+
+mycursor = mydb.cursor()
+mycursor.execute("SELECT * FROM docente")
+docentes_mysql = mycursor.fetchall()
+
+mycursor = mydb.cursor()
+mycursor.execute("SELECT * FROM disciplina")
+disciplina_mysql = mycursor.fetchall()
+
+
+mysql_insert_query_docente_disciplina = 'INSERT INTO docente_disciplina (id_docente, id_disciplina) VALUES (%s, %s)'
+data_disciplina_docente = data_disciplina_docente.reset_index() 
+for index, row in data_disciplina_docente.iterrows():
+    email = row['E-MAIL']
+    nome_disciplina = row['COMPONENTE CURRICULAR']
+
+    id_docente = None
+    for x in docentes_mysql:
+        if x[2] == email: # 2 = email
+            id_docente = x[0] # 0 = id_docente
+            break
+    
+    id_disciplina = None
+    for x in disciplina_mysql:
+        if x[1] == nome_disciplina: # 1 = nome discplina
+            id_disciplina = x[0] # 0 = id_disciplina
+            break
+
+    mycursor = mydb.cursor()
+    mycursor.execute(mysql_insert_query_docente_disciplina, (id_docente, id_disciplina))
+    mydb.commit()
+
+
