@@ -12,3 +12,7 @@ docker container rm mysql-local
 
 
 
+select do.*, di.*
+from docente_disciplina do_di 
+inner join docente do on do_di.id_docente = do.id_docente
+inner join disciplina di on do_di.id_disciplina = di.id_disciplina;
