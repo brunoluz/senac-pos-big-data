@@ -1,0 +1,21 @@
+docker network create redis-network
+docker run --network redis-network --name redis-local -d redis
+docker run -it --network redis-network --rm redis redis-cli -h redis-local
+
+
+
+set abacaxi 12
+set pera 3
+set maca 5
+set abacate 6
+
+keys *
+
+get abacaxi
+lpush frutas uva
+lpush frutas banana
+rpush frutas abacate
+lrange frutas 0 2
+lindex frutas 0
+lpop frutas
+rpop frutas
