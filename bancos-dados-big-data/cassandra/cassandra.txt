@@ -1,0 +1,45 @@
+docker network create cassandra-network
+docker run --name cassandra-local --network cassandra-network -d cassandra:latest
+docker run -it --network cassandra-network --rm cassandra cqlsh cassandra-local
+
+
+
+CREATE KEYSPACE bruno_keyspace WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+describe keyspaces;
+
+
+CREATE TABLE bruno_table (
+    species text PRIMARY KEY,
+    common_name text,
+    population varint,
+    average_size int
+) WITH comment='Bora';
+
+describe tables;
+ 
+
+
+create keyspace teste with replication = {'class':'SimpleStrategy', 'replication_factor':1};
+
+select * from system_schema.keyspaces;
+
+describe keyspaces;
+
+use teste;
+
+create table pessoas (id int primary key, nome text, idade varint);
+
+select * from system_schema.tables where keyspace_name = 'teste';
+
+insert into teste.pessoas (id, nome, idade) values (1, 'bruno', 35);
+insert into teste.pessoas (id, nome, idade) values (2, 'ed', 30);
+insert into teste.pessoas (id, nome, idade) values (3, 'carlos', 40);
+
+select * from teste.pessoas;
+
+select * from teste.pessoas where idade=40 allow filtering;
+
+select * from teste.pessoas where id=1;
+
+consistency;
