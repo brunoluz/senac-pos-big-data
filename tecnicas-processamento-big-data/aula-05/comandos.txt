@@ -1,0 +1,4 @@
+export CLASSPATH=$CLASSPATH:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.4.jar:/usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.4.jar
+cd /usr/local/hadoop/ExemploSENAC
+ant -f build_ExemploSENAC.xml makejar
+/usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/ExemploSENAC/ExemploSENAC.jar SENAC.ExemploSENAC
