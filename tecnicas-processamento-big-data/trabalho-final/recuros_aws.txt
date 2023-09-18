@@ -1,0 +1,8 @@
+recursos projeto tecnicas processamento e analise big data
+
+S3
+- senac-tpabd-projeto-final-s3
+Lambda
+- senac-tpabd-projeto-final-lambda
+role
+- senac-tpabd-projeto-final-lambda-role-njavbbmx
