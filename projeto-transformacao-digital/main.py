@@ -37,15 +37,61 @@ def get_year_from_filename(filename):
 
 
 def consolidate_data_into_final_table(year):
-    query = """
-        SELECT name, SUM(number) as total_people
-        FROM `bigquery-public-data.usa_names.usa_1910_2013`
-        WHERE state = 'TX'
-        GROUP BY name, state
-        ORDER BY total_people DESC
-        LIMIT 20
+    query = f"""
+CREATE TABLE IF NOT EXISTS `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (
+  continente STRING,
+  cod_continente INT64,
+  pais STRING,
+  cod_pais INT64,
+  uf STRING,
+  cod_uf INT64,
+  via STRING,
+  cod_via INT64,
+  ano INT64,
+  mes STRING,
+  cod_mes INT64,
+  chegadas INT64
+);
+DELETE FROM `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` WHERE ano = {year};
     """
-    query_job = client.query(query)  # Make an API request.
+    if year > 2015:
+        query += f"""
+        INSERT INTO `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (continente, cod_continente, 
+        pais, cod_pais, uf, cod_uf, via, cod_via, ano, mes, cod_mes, chegadas)
+        SELECT UPPER(Continente) as continente, 
+        cod_continente, 
+        UPPER(Pa__s) as pais, 
+        cod_pais, 
+        UPPER(UF) as uf, 
+        cod_uf, 
+        UPPER(Via) as via, 
+        cod_via, 
+        ano, 
+        UPPER(M__s) as mes, 
+        cod_mes, 
+        Chegadas as chegadas
+        from `senac-dados-turismo.senac_dados_turismo_conjunto_dados.chegadas_{year}`;
+        """
+    else:
+        query += f"""
+        INSERT INTO `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (continente, cod_continente, 
+        pais, cod_pais, uf, cod_uf, via, cod_via, ano, mes, cod_mes, chegadas)
+        SELECT UPPER(Continente) as continente,
+        Ordem_continente as cod_continente,
+        UPPER(Pa__s) as pais, 
+        Ordem_pa__s as cod_pais, 
+        UPPER(UF) as uf, 
+        Ordem_UF as cod_uf, 
+        UPPER(Via_de_acesso) as via, 
+        Ordem_via_de_acesso as cod_via, 
+        ano, 
+        UPPER(M__s) as mes,
+        Ordem_m__s as cod_mes, 
+        Chegadas as chegadas
+        from `senac-dados-turismo.senac_dados_turismo_conjunto_dados.chegadas_{year}`;
+        """
+
+    client.query(query)
 
 
 @functions_framework.cloud_event

@@ -1,0 +1,1 @@
+Criar variável de ambiente GOOGLE_APPLICATION_CREDENTIALS com arquivo json de credencial do GCP.
