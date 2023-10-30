@@ -1,8 +1,10 @@
+import os
+
 import functions_framework
 from google.cloud import bigquery
 
-PROJECT = "senac-dados-turismo"
-DATASET = "senac_dados_turismo_conjunto_dados"
+PROJECT = os.environ["PROJECT"]
+DATASET = os.environ["DATASET"]
 client = bigquery.Client()
 
 
@@ -70,7 +72,7 @@ DELETE FROM `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` WHERE ano = {year};
         UPPER(M__s) as mes, 
         cod_mes, 
         Chegadas as chegadas
-        from `senac-dados-turismo.senac_dados_turismo_conjunto_dados.chegadas_{year}`;
+        from `{PROJECT}.{DATASET}.chegadas_{year}`;
         """
     else:
         query += f"""
@@ -88,7 +90,7 @@ DELETE FROM `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` WHERE ano = {year};
         UPPER(M__s) as mes,
         Ordem_m__s as cod_mes, 
         Chegadas as chegadas
-        from `senac-dados-turismo.senac_dados_turismo_conjunto_dados.chegadas_{year}`;
+        from `{PROJECT}.{DATASET}.chegadas_{year}`;
         """
 
     client.query(query)
