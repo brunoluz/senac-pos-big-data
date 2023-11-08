@@ -39,6 +39,9 @@ def get_year_from_filename(filename):
 
 
 def consolidate_data_into_final_table(year):
+    str_origem = "ŠŽšžŸÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðñòóôõöùúûüýÿ"
+    str_destino = "SZszYAAAAAACEEEEIIIIDNOOOOOUUUUYaaaaaaceeeeiiiidnooooouuuuyy"
+
     query = f"""
 CREATE TABLE IF NOT EXISTS `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (
   continente STRING,
@@ -60,16 +63,16 @@ DELETE FROM `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` WHERE ano = {year};
         query += f"""
         INSERT INTO `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (continente, cod_continente, 
         pais, cod_pais, uf, cod_uf, via, cod_via, ano, mes, cod_mes, chegadas)
-        SELECT UPPER(Continente) as continente, 
+        SELECT translate(UPPER(COLLATE(Continente, '')), "{str_origem}", "{str_destino}") as continente, 
         cod_continente, 
-        UPPER(Pa__s) as pais, 
+        translate(UPPER(COLLATE(Pa__s, '')), "{str_origem}", "{str_destino}") as pais, 
         cod_pais, 
-        UPPER(UF) as uf, 
+        translate(UPPER(COLLATE(UF, '')), "{str_origem}", "{str_destino}") as uf, 
         cod_uf, 
-        UPPER(Via) as via, 
+        translate(UPPER(COLLATE(Via, '')), "{str_origem}", "{str_destino}") as via, 
         cod_via, 
         ano, 
-        UPPER(M__s) as mes, 
+        translate(UPPER(COLLATE(M__s, '')), "{str_origem}", "{str_destino}") as mes, 
         cod_mes, 
         Chegadas as chegadas
         from `{PROJECT}.{DATASET}.chegadas_{year}`;
@@ -78,21 +81,22 @@ DELETE FROM `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` WHERE ano = {year};
         query += f"""
         INSERT INTO `{PROJECT}.{DATASET}.TURISMO_CONSOLIDADO` (continente, cod_continente, 
         pais, cod_pais, uf, cod_uf, via, cod_via, ano, mes, cod_mes, chegadas)
-        SELECT UPPER(Continente) as continente,
+        SELECT translate(UPPER(COLLATE(Continente, '')), "{str_origem}", "{str_destino}") as continente,
         Ordem_continente as cod_continente,
-        UPPER(Pa__s) as pais, 
+        translate(UPPER(COLLATE(Pa__s, '')), "{str_origem}", "{str_destino}") as pais, 
         Ordem_pa__s as cod_pais, 
-        UPPER(UF) as uf, 
+        translate(UPPER(COLLATE(UF, '')), "{str_origem}", "{str_destino}") as uf, 
         Ordem_UF as cod_uf, 
-        UPPER(Via_de_acesso) as via, 
+        translate(UPPER(COLLATE(Via_de_acesso, '')), "{str_origem}", "{str_destino}") as via, 
         Ordem_via_de_acesso as cod_via, 
         ano, 
-        UPPER(M__s) as mes,
+        translate(UPPER(COLLATE(M__s, '')), "{str_origem}", "{str_destino}") as mes,
         Ordem_m__s as cod_mes, 
         Chegadas as chegadas
         from `{PROJECT}.{DATASET}.chegadas_{year}`;
         """
 
+    print(query)
     client.query(query)
 
 
