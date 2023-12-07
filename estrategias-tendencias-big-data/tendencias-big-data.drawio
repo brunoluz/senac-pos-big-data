@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-07T00:34:06.519Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="_QDPUX3YAPIU0KLtF2rT" version="21.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-07T00:48:17.575Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="_SU-jgdcvWaRMgwKgRIQ" version="21.8.0" type="github">
   <diagram name="Page-1" id="tBKqJ0GVF9nW1sbdtoOr">
     <mxGraphModel dx="954" dy="539" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -47,10 +47,10 @@
           <mxGeometry x="500" y="605" width="20" height="40" as="geometry" />
         </mxCell>
         <mxCell id="domNFbstdN9AaimZ1EG0-25" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/250px-Jupyter_logo.svg.png;" vertex="1" parent="1">
-          <mxGeometry x="712.01" y="230" width="43.11" height="50" as="geometry" />
+          <mxGeometry x="469.44" y="268.6" width="43.11" height="50" as="geometry" />
         </mxCell>
         <mxCell id="domNFbstdN9AaimZ1EG0-26" value="Engenheiro/Cientista&lt;br&gt;de dados" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="565.51" y="181.4" width="30" height="60" as="geometry" />
+          <mxGeometry x="322.94" y="220" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="domNFbstdN9AaimZ1EG0-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="domNFbstdN9AaimZ1EG0-27" target="domNFbstdN9AaimZ1EG0-28">
           <mxGeometry relative="1" as="geometry">
@@ -58,10 +58,18 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="domNFbstdN9AaimZ1EG0-27" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/Managed_Desktop.svg;" vertex="1" parent="1">
-          <mxGeometry x="655.51" y="181.39999999999998" width="68" height="63.2" as="geometry" />
+          <mxGeometry x="412.94" y="219.99999999999997" width="68" height="63.2" as="geometry" />
         </mxCell>
         <mxCell id="domNFbstdN9AaimZ1EG0-28" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://joblib.readthedocs.io/en/latest/_static/joblib_logo.svg;" vertex="1" parent="1">
           <mxGeometry x="667.83" y="439" width="43.37" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="domNFbstdN9AaimZ1EG0-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.53;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="domNFbstdN9AaimZ1EG0-32" target="domNFbstdN9AaimZ1EG0-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="domNFbstdN9AaimZ1EG0-32" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://dados.turismo.gov.br/uploads/admin/2021-10-19-130513.513282BannerDadosAbertosCkanv2.jpg;" vertex="1" parent="1">
+          <mxGeometry x="313.25" y="70" width="271.75" height="67.94" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
