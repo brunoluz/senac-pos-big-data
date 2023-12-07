@@ -7,21 +7,158 @@
     * {
       font-family: "Comic Sans MS", "Comic Sans";
     }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        }
 </style>
 <body>
-    <marquee><h1>Meu modelo de Machine Learning</h1></marquee>
-<form action="/turismo">
-    <label for="cod_pais">Pais de origem</label>
-    <select id="cod_pais">
-        <option value="PT">Portugal</option>
-        <option value="US">Estados Unidos</option>
-    </select>
-    
-    <label for="cod_uf">Estado de destino</label>
-    <select id="cod_uf">
-        <option value="PT">Portugal</option>
-        <option value="US">Estados Unidos</option>
-    </select>
+    <marquee><h1>Machine Learning - Previsao de Turistas</h1></marquee>
+    <p>O nosso modelo tem por objetivo predizer quantos turistas de um determinado pais vao visitar determinado estado no ano escolhido.</p>
+<form action="/predict_turismo" method="post">
+    <table class="center">
+        <tr>
+            <td><label for="cod_pais">Pais de origem</label></td>
+            <td>    <select id="cod_pais" name="cod_pais">
+                <option value="2">AFRICA DO SUL</option>
+                <option value="4">ALEMANHA</option>
+                <option value="6">ANGOLA</option>
+                <option value="9">ARABIA SAUDITA</option>
+                <option value="11">ARGENTINA</option>
+                <option value="14">AUSTRALIA</option>
+                <option value="15">AUSTRIA</option>
+                <option value="18">BANGLADESH</option>
+                <option value="21">BELGICA</option>
+                <option value="26">BOLIVIA</option>
+                <option value="31">BULGARIA</option>
+                <option value="35">CABO VERDE</option>
+                <option value="38">CANADA</option>
+                <option value="42">CHILE</option>
+                <option value="43">CHINA</option>
+                <option value="44">HONG KONG</option>
+                <option value="47">CINGAPURA</option>
+                <option value="48">COLOMBIA</option>
+                <option value="53">COSTA RICA</option>
+                <option value="54">CROACIA</option>
+                <option value="55">CUBA</option>
+                <option value="57">DINAMARCA</option>
+                <option value="60">EGITO</option>
+                <option value="61">EL SALVADOR</option>
+                <option value="63">EQUADOR</option>
+                <option value="65">ESLOVAQUIA</option>
+                <option value="66">ESLOVENIA</option>
+                <option value="67">ESPANHA</option>
+                <option value="68">ESTADOS UNIDOS</option>
+                <option value="69">ESTONIA</option>
+                <option value="72">FILIPINAS</option>
+                <option value="73">FINLANDIA</option>
+                <option value="74">FRANCA</option>
+                <option value="77">GANA</option>
+                <option value="81">GRECIA</option>
+                <option value="84">GUATEMALA</option>
+                <option value="86">GUIANA</option>
+                <option value="87">GUIANA FRANCESA</option>
+                <option value="91">HAITI</option>
+                <option value="92">HOLANDA</option>
+                <option value="93">HONDURAS</option>
+                <option value="94">HUNGRIA</option>
+                <option value="113">INDIA</option>
+                <option value="114">INDONESIA</option>
+                <option value="115">IRA</option>
+                <option value="117">IRLANDA</option>
+                <option value="119">ISRAEL</option>
+                <option value="120">ITALIA</option>
+                <option value="122">JAPAO</option>
+                <option value="129">LETONIA</option>
+                <option value="130">LIBANO</option>
+                <option value="134">LITUANIA</option>
+                <option value="135">LUXEMBURGO</option>
+                <option value="138">MALASIA</option>
+                <option value="143">MARROCOS</option>
+                <option value="148">MEXICO</option>
+                <option value="151">MOCAMBIQUE</option>
+                <option value="160">NICARAGUA</option>
+                <option value="162">NIGERIA</option>
+                <option value="164">NORUEGA</option>
+                <option value="166">NOVA ZELANDIA</option>
+                <option value="998">OUTROS PAISES</option>
+                <option value="999">PAISES NAO ESPECIFICADOS</option>
+                <option value="170">PANAMA</option>
+                <option value="172">PAQUISTAO</option>
+                <option value="173">PARAGUAI</option>
+                <option value="174">PERU</option>
+                <option value="177">POLONIA</option>
+                <option value="179">PORTUGAL</option>
+                <option value="180">QUENIA</option>
+                <option value="182">REINO UNIDO</option>
+                <option value="184">REPUBLICA DA COREIA</option>
+                <option value="186">REPUBLICA DOMINICANA</option>
+                <option value="187">REPUBLICA TCHECA</option>
+                <option value="188">ROMENIA</option>
+                <option value="190">RUSSIA</option>
+                <option value="208">SERVIA</option>
+                <option value="209">SIRIA</option>
+                <option value="215">SUECIA</option>
+                <option value="216">SUICA</option>
+                <option value="217">SURINAME</option>
+                <option value="220">TAILANDIA</option>
+                <option value="221">TAIWAN</option>
+                <option value="227">TRINIDAD E TOBAGO</option>
+                <option value="228">TUNISIA</option>
+                <option value="230">TURQUIA</option>
+                <option value="232">UCRANIA</option>
+                <option value="234">URUGUAI</option>
+                <option value="238">VENEZUELA</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label for="cod_uf">Estado de destino</label></td>
+            <td> <select id="cod_uf" name="cod_uf">
+                <option value="1">ACRE</option>
+                <option value="3">AMAPA</option>
+                <option value="4">AMAZONAS</option>
+                <option value="5">BAHIA</option>
+                <option value="6">CEARA</option>
+                <option value="7">DISTRITO FEDERAL</option>
+                <option value="12">MATO GROSSO DO SUL</option>
+                <option value="13">MINAS GERAIS</option>
+                <option value="99">OUTRAS UNIDADES DA FEDERACAO</option>
+                <option value="14">PARA</option>
+                <option value="16">PARANA</option>
+                <option value="17">PERNAMBUCO</option>
+                <option value="19">RIO DE JANEIRO</option>
+                <option value="20">RIO GRANDE DO NORTE</option>
+                <option value="21">RIO GRANDE DO SUL</option>
+                <option value="23">RORAIMA</option>
+                <option value="24">SANTA CATARINA</option>
+                <option value="25">SAO PAULO</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label for="ano">Ano</label></td>
+            <td><input type="number" id="ano" name="ano" min="2024" max="2040" value="2024"></td>
+        </tr>
+        <tr>
+            <td><label for="cod_mes">Mes</label></td>
+            <td><select id="cod_mes" name="cod_mes">
+                <option value="1">JANEIRO</option>
+                <option value="2">FEVEREIRO</option>
+                <option value="3">MARCO</option>
+                <option value="4">ABRIL</option>
+                <option value="5">MAIO</option>
+                <option value="6">JUNHO</option>
+                <option value="7">JULHO</option>
+                <option value="8">AGOSTO</option>
+                <option value="9">SETEMBRO</option>
+                <option value="10">OUTUBRO</option>
+                <option value="11">NOVEMBRO</option>
+                <option value="12">DEZEMBRO</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td><td><input type="submit"></td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
