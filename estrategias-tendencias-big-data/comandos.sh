@@ -26,3 +26,11 @@ curl -X POST http://ec2-15-228-28-56.sa-east-1.compute.amazonaws.com:8080/echo2 
 
 # POST /json-example
 curl -X POST http://ec2-15-228-28-56.sa-east-1.compute.amazonaws.com:8080/json-example -H "Content-Type: application/json" -d '{"msg": "oi"}'
+
+# POST /predict_turismo
+curl -X POST http://ec2-54-164-189-176.compute-1.amazonaws.com:8888/predict_turismo -H "Content-Type: application/json" -d '{
+    "cod_pais": 69,
+    "cod_uf": 25,
+    "ano": 2024,
+    "cod_mes": 1
+}'

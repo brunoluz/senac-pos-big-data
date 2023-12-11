@@ -16,10 +16,17 @@ def predict_turismo():
     else:  # POST
 
         try:
-            cod_pais = int(request.form['cod_pais'])
-            cod_uf = int(request.form['cod_uf'])
-            ano = int(request.form['ano'])
-            cod_mes = int(request.form['cod_mes'])
+            if 'Content-Type' in request.headers and request.headers['Content-Type'] == 'application/json':
+                request_data = request.get_json()
+                cod_pais = int(request_data['cod_pais'])
+                cod_uf = int(request_data['cod_uf'])
+                ano = int(request_data['ano'])
+                cod_mes = int(request_data['cod_mes'])
+            else:
+                cod_pais = int(request.form['cod_pais'])
+                cod_uf = int(request.form['cod_uf'])
+                ano = int(request.form['ano'])
+                cod_mes = int(request.form['cod_mes'])
         except (KeyError, ValueError) as e:
             return jsonify({'error': 'Campos inválidos ou ausentes.'}), 400
 
@@ -30,10 +37,10 @@ def predict_turismo():
         resultado_predict = mr.predict([[cod_pais, cod_uf, ano, cod_mes]])
         chegadas_previsto = resultado_predict[0]
 
-        resultado = {'Numero de chegadas previsto': chegadas_previsto}
+        resultado = {'previsto': chegadas_previsto}
         return jsonify(resultado), 200
 
 
 if __name__ == '__main__':
     debug = False  # com essa opção como True, ao salvar, o "site" recarrega automaticamente."
-    app.run(host='0.0.0.0', port=5000, debug=debug)
+    app.run(host='0.0.0.0', port=8888, debug=debug)
